@@ -259,3 +259,7 @@ paket-files/
 # Python Tools for Visual Studio (PTVS)
 __pycache__/
 *.pyc
+/CommuteStatus/options.js
+/CommuteStatus/creds.data
+CommuteStatus/src/options.ts
+/CommuteStatus/dist

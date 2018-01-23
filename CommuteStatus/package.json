@@ -3,22 +3,49 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "node app"
+    "watch": "concurrently --kill-others \"webpack --env.env=development\" \"nodemon ./dist/app.js localhost 3000 --watch dist\"",
+    "build": "webpack --env.env=production",
+    "build-test": "webpack --config webpack.test.config.js",
+    "test": "ava ./dist/test.js --watch",
+    
+    "test-backup": "concurrently --kill-others \"webpack --config webpack.test.config.js\" \"ava ./dist/test.js\""
   },
   "description": "CommuteStatus",
   "author": {
     "name": "niels"
   },
   "dependencies": {
+    "actions-on-google": "^1.7.0",
     "body-parser": "^1.15.0",
     "cookie-parser": "^1.4.0",
     "debug": "^2.2.0",
     "express": "^4.14.0",
-    "morgan": "^1.7.0",
-    "pug": "^2.0.0-beta6",
-    "serve-favicon": "^2.3.0"
+    "request": "^2.83.0",
+    "request-promise-native": "^1.0.5"
   },
   "engines": {
     "node": "~6.10.x"
+  },
+  "devDependencies": {
+    "@types/actions-on-google": "^1.7.0",
+    "@types/cookie-parser": "^1.4.1",
+    "@types/debug": "0.0.30",
+    "@types/express": "^4.11.0",
+    "@types/node": "^9.3.0",
+    "@types/request": "^2.0.12",
+    "@types/request-promise-native": "^1.0.10",
+    "ava": "^0.24.0",
+    "awesome-typescript-loader": "^3.4.1",
+    "concurrently": "^3.5.1",
+    "nodemon": "^1.14.11",
+    "source-map-loader": "^0.2.3",
+    "ts-loader": "^3.3.0",
+    "ts-node": "^4.1.0",
+    "tsconfig-paths": "^3.1.1",
+    "tsconfig-paths-webpack-plugin": "^2.0.0",
+    "typescript": "^2.6.2",
+    "webpack": "^3.10.0",
+    "webpack-node-externals": "^1.6.0",
+    "webpack-shell-plugin": "^0.5.0"
   }
 }

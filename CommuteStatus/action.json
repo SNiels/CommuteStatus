@@ -1,0 +1,27 @@
+{
+  "actions": [
+    {
+      "description": "Default Welcome Intent",
+      "name": "MAIN",
+      "fulfillment": {
+        "conversationName": "commuteStatus"
+      },
+      "intent": {
+        "name": "actions.intent.MAIN",
+        "trigger": {
+          "queryPatterns": [
+            "talk to commute status",
+            "when is the next train?"
+          ]
+        }
+      }
+    }
+  ],
+  "conversations": {
+    "commuteStatus": {
+      "name": "commuteStatus",
+      "url": "https://workcommutestatusswimb.azurewebsites.net/",
+      "fulfillmentApiVersion": 2
+    }
+  }
+}
