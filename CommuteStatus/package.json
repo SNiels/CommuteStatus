@@ -6,9 +6,7 @@
     "watch": "concurrently --kill-others \"webpack --env.env=development\" \"nodemon ./dist/app.js localhost 3000 --watch dist\"",
     "build": "webpack --env.env=production",
     "build-test": "webpack --config webpack.test.config.js",
-    "test": "ava ./dist/test.js --watch",
-    
-    "test-backup": "concurrently --kill-others \"webpack --config webpack.test.config.js\" \"ava ./dist/test.js\""
+    "test": "ava ./dist/test.js --watch"
   },
   "description": "CommuteStatus",
   "author": {
