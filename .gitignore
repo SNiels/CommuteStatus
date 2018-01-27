@@ -263,3 +263,5 @@ __pycache__/
 /CommuteStatus/creds.data
 CommuteStatus/src/options.ts
 /CommuteStatus/dist
+CommuteStatus/coverage/cobertura-coverage.xml
+CommuteStatus/junit.xml

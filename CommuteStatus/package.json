@@ -6,7 +6,8 @@
     "watch": "concurrently --kill-others \"webpack --env.env=development\" \"nodemon ./dist/app.js localhost 3000 --watch dist\"",
     "build": "webpack --env.env=production",
     "build-test": "webpack --config webpack.test.config.js",
-    "test": "ava ./dist/test.js --watch"
+    "test": "jest --watchAll --env=node",
+    "test:ci": "jest --ci --coverage --testResultsProcessor=jest-junit --env=node"
   },
   "description": "CommuteStatus",
   "author": {
@@ -29,14 +30,20 @@
     "@types/cookie-parser": "^1.4.1",
     "@types/debug": "0.0.30",
     "@types/express": "^4.11.0",
+    "@types/jest": "^22.1.0",
     "@types/node": "^9.3.0",
     "@types/request": "^2.0.12",
     "@types/request-promise-native": "^1.0.10",
     "ava": "^0.24.0",
     "awesome-typescript-loader": "^3.4.1",
+    "babel-jest": "^22.1.0",
     "concurrently": "^3.5.1",
+    "jasmine-reporters": "^2.3.0",
+    "jest": "^22.1.4",
+    "jest-junit": "^3.4.1",
     "nodemon": "^1.14.11",
     "source-map-loader": "^0.2.3",
+    "ts-jest": "^22.0.1",
     "ts-loader": "^3.3.0",
     "ts-node": "^4.1.0",
     "tsconfig-paths": "^3.1.1",
@@ -45,5 +52,25 @@
     "webpack": "^3.10.0",
     "webpack-node-externals": "^1.6.0",
     "webpack-shell-plugin": "^0.5.0"
+  },
+  "jest": {
+    "transform": {
+      "^.+\\.tsx?$": "ts-jest"
+    },
+    "testRegex": "test/?(?:[^/]+/?)*.test.ts$",
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js",
+      "jsx",
+      "json",
+      "node"
+    ],
+    "moduleNameMapper": {
+      "src/(.*)": "<rootDir>/src/$1"
+    },
+    "testResultsProcessor": "jest-junit",
+    "coverageReporters": ["cobertura"],
+    "coveragePathIgnorePatterns": ["/node_modules/", "/src/test/", "/src/options.example.ts"]
   }
 }
