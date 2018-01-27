@@ -70,7 +70,7 @@
       "src/(.*)": "<rootDir>/src/$1"
     },
     "testResultsProcessor": "jest-junit",
-    "coverageReporters": ["cobertura"],
+    "coverageReporters": ["html", "cobertura"],
     "coveragePathIgnorePatterns": ["/node_modules/", "/src/test/", "/src/options.example.ts"]
   }
 }
